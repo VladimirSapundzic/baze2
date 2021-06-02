@@ -28,9 +28,16 @@ namespace BP2_PR6_2017
 
         public void PrikaziSkladista(object s, RoutedEventArgs e)
         {
-            MessageBox.Show("Nije jos uradjeno");
+            //MessageBox.Show("Nije jos uradjeno");
             SkladistaWindow skladistaWindow = new SkladistaWindow();
             skladistaWindow.Show();
+        }
+
+        public void PrikaziRecenzije(object s, RoutedEventArgs e)
+        {
+            //MessageBox.Show("Nije jos uradjeno");
+            RecenzijeWindow recenzijeWindow = new RecenzijeWindow();
+            recenzijeWindow.Show();
         }
     }
 }

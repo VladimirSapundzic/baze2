@@ -1,0 +1,41 @@
+﻿<Window x:Class="BP2_PR6_2017.RecenzijeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BP2_PR6_2017"
+        mc:Ignorable="d"
+        Title="RecenzijeWindow" Height="450" Width="800">
+    <Grid Background="Gainsboro">
+        <Label Content="Komentar: " HorizontalAlignment="Left"  VerticalContentAlignment="Center" Grid.Column="0" Grid.Row="0" RenderTransformOrigin="0.54,0.853" Width="201" Margin="30,10,0,366"/>
+        <TextBox Grid.Row="0" x:Name="KomTextBox"  Width="220" HorizontalAlignment="Left" Margin="285,10,0,366"/>
+        <Button Content="Save" Click="ButtonSave_Click" HorizontalAlignment="Left" Margin="570,10,0,0" VerticalAlignment="Top" Width="75" Height="22"/>
+        <Button x:Name="ButtonCancel" Content="Cancel" Margin="676,10,0,387" HorizontalAlignment="Left" Width="70" Click="ButtonCancel_Click" RenderTransformOrigin="1.027,2.872" />
+        <DataGrid x:Name="RecenzijeList" Background="Pink" SelectionMode="Single" IsReadOnly="True" AutoGenerateColumns="False" Margin="30,222,32,10" Height="187">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="Id" Header="Id" Binding="{Binding Id}" Width="120"/>
+                <DataGridTextColumn x:Name="Komentar" Header="Komentar" Binding="{Binding Komentar}" Width="120"/>
+                <DataGridTextColumn x:Name="Ocena" Header="Ocena" Binding="{Binding Ocena}" Width="120"/>
+
+                <DataGridTemplateColumn Width="80">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="EDIT" x:Name="ButtonEdit" Click="ButtonEdit_Click" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="80">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="DELETE" x:Name="ButtonDelete" Click="ButtonDelete_Click" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Ocena: " HorizontalAlignment="Left"  VerticalContentAlignment="Center" Grid.Column="0" Grid.Row="0" RenderTransformOrigin="0.54,0.853" Width="201" Margin="30,58,0,324"/>
+        <TextBox Grid.Row="0" x:Name="OcenaTextBox"  Width="220" HorizontalAlignment="Left" Margin="285,58,0,324"/>
+        <Label Content="Knjiga: " HorizontalAlignment="Left"  VerticalContentAlignment="Center" Grid.Column="0" Grid.Row="0" RenderTransformOrigin="0.54,0.853" Width="201" Margin="30,100,0,291"/>
+        <ComboBox x:Name="UgovorComboBox" Margin="285,114,0,277" ItemsSource="{Binding Knjige}" SelectedValuePath="UID" HorizontalAlignment="Left" Width="220" />
+    </Grid>
+</Window>

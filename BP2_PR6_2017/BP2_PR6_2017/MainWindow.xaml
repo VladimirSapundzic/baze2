@@ -8,6 +8,7 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Button Content="Skladišta" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="284" Height="100" Background="#FFB04444" FontSize="36" Click="PrikaziSkladista"/>
+        <Button Content="Recenzije" HorizontalAlignment="Left" Margin="312,10,0,0" VerticalAlignment="Top" Width="284" Height="100" Background="#FFB04444" FontSize="36" Click="PrikaziRecenzije"/>
 
     </Grid>
 </Window>

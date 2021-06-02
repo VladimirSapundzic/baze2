@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 06/02/2021 12:01:58
+-- Date Created: 06/02/2021 17:12:46
 -- Generated from EDMX file: C:\Users\Vlada\Desktop\baze2\BP2_PR6_2017\BP2_PR6_2017\ModelProj.edmx
 -- --------------------------------------------------
 
@@ -17,11 +17,92 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_NagradaOsvaja]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[OsvajaSet] DROP CONSTRAINT [FK_NagradaOsvaja];
+GO
+IF OBJECT_ID(N'[dbo].[FK_IzdavacKnjiga]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[KnjigaSet] DROP CONSTRAINT [FK_IzdavacKnjiga];
+GO
+IF OBJECT_ID(N'[dbo].[FK_AutorKnjiga]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[KnjigaSet] DROP CONSTRAINT [FK_AutorKnjiga];
+GO
+IF OBJECT_ID(N'[dbo].[FK_SkladisteNalazi]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[NalaziSet] DROP CONSTRAINT [FK_SkladisteNalazi];
+GO
+IF OBJECT_ID(N'[dbo].[FK_KupacRecenzija]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[RecenzijaSet] DROP CONSTRAINT [FK_KupacRecenzija];
+GO
+IF OBJECT_ID(N'[dbo].[FK_KupacKupovina]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[KupovinaSet] DROP CONSTRAINT [FK_KupacKupovina];
+GO
+IF OBJECT_ID(N'[dbo].[FK_KreiraAdministrator]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[KreiraSet] DROP CONSTRAINT [FK_KreiraAdministrator];
+GO
+IF OBJECT_ID(N'[dbo].[FK_AdministratorKreira]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[KreiraSet] DROP CONSTRAINT [FK_AdministratorKreira];
+GO
+IF OBJECT_ID(N'[dbo].[FK_KnjigaRecenzija]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[RecenzijaSet] DROP CONSTRAINT [FK_KnjigaRecenzija];
+GO
+IF OBJECT_ID(N'[dbo].[FK_KnjigaNalazi]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[NalaziSet] DROP CONSTRAINT [FK_KnjigaNalazi];
+GO
+IF OBJECT_ID(N'[dbo].[FK_KnjigaKupovina]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[KupovinaSet] DROP CONSTRAINT [FK_KnjigaKupovina];
+GO
+IF OBJECT_ID(N'[dbo].[FK_OsvajaKnjiga]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[OsvajaSet] DROP CONSTRAINT [FK_OsvajaKnjiga];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Kupac_inherits_Korisnik]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[KorisnikSet_Kupac] DROP CONSTRAINT [FK_Kupac_inherits_Korisnik];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Administrator_inherits_Korisnik]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[KorisnikSet_Administrator] DROP CONSTRAINT [FK_Administrator_inherits_Korisnik];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[NagradaSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[NagradaSet];
+GO
+IF OBJECT_ID(N'[dbo].[IzdavacSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[IzdavacSet];
+GO
+IF OBJECT_ID(N'[dbo].[AutorSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[AutorSet];
+GO
+IF OBJECT_ID(N'[dbo].[SkladisteSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[SkladisteSet];
+GO
+IF OBJECT_ID(N'[dbo].[KorisnikSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[KorisnikSet];
+GO
+IF OBJECT_ID(N'[dbo].[RecenzijaSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[RecenzijaSet];
+GO
+IF OBJECT_ID(N'[dbo].[KnjigaSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[KnjigaSet];
+GO
+IF OBJECT_ID(N'[dbo].[NalaziSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[NalaziSet];
+GO
+IF OBJECT_ID(N'[dbo].[OsvajaSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[OsvajaSet];
+GO
+IF OBJECT_ID(N'[dbo].[KreiraSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[KreiraSet];
+GO
+IF OBJECT_ID(N'[dbo].[KupovinaSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[KupovinaSet];
+GO
+IF OBJECT_ID(N'[dbo].[KorisnikSet_Kupac]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[KorisnikSet_Kupac];
+GO
+IF OBJECT_ID(N'[dbo].[KorisnikSet_Administrator]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[KorisnikSet_Administrator];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -121,12 +202,14 @@ GO
 
 -- Creating table 'KorisnikSet_Kupac'
 CREATE TABLE [dbo].[KorisnikSet_Kupac] (
+    [stanjeRacuna] int  NOT NULL,
     [IdKor] int  NOT NULL
 );
 GO
 
 -- Creating table 'KorisnikSet_Administrator'
 CREATE TABLE [dbo].[KorisnikSet_Administrator] (
+    [DatumKreiranja] datetime  NOT NULL,
     [IdKor] int  NOT NULL
 );
 GO

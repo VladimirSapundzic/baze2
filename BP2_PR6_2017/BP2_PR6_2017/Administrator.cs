@@ -20,6 +20,7 @@ namespace BP2_PR6_2017
             this.Kreira1 = new HashSet<Kreira>();
         }
     
+        public System.DateTime DatumKreiranja { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Kreira> Kreira1 { get; set; }

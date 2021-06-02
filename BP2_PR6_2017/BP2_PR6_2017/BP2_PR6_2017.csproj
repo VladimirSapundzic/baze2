@@ -102,6 +102,9 @@
     <Compile Include="Osvaja.cs">
       <DependentUpon>ModelProj.tt</DependentUpon>
     </Compile>
+    <Compile Include="RecenzijeWindow.xaml.cs">
+      <DependentUpon>RecenzijeWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SkladistaWindow.xaml.cs">
       <DependentUpon>SkladistaWindow.xaml</DependentUpon>
     </Compile>
@@ -135,6 +138,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="RecenzijeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SkladistaWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

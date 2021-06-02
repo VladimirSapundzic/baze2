@@ -21,6 +21,7 @@ namespace BP2_PR6_2017
             this.Kupovina = new HashSet<Kupovina>();
         }
     
+        public int stanjeRacuna { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Recenzija> Recenzija { get; set; }

@@ -172,12 +172,14 @@
     <Key>
       <PropertyRef Name="IdKor" />
     </Key>
+    <Property Name="stanjeRacuna" Type="int" Nullable="false" />
     <Property Name="IdKor" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="KorisnikSet_Administrator">
     <Key>
       <PropertyRef Name="IdKor" />
     </Key>
+    <Property Name="DatumKreiranja" Type="datetime" Nullable="false" />
     <Property Name="IdKor" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="NagradaOsvaja">
@@ -462,10 +464,12 @@
         <EntityType Name="Kupac" BaseType="ModelProj.Korisnik">
           <NavigationProperty Name="Recenzija" Relationship="ModelProj.KupacRecenzija" FromRole="Kupac" ToRole="Recenzija" />
           <NavigationProperty Name="Kupovina" Relationship="ModelProj.KupacKupovina" FromRole="Kupac" ToRole="Kupovina" />
+          <Property Name="stanjeRacuna" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Administrator" BaseType="ModelProj.Korisnik">
           <NavigationProperty Name="Kreira1" Relationship="ModelProj.KreiraAdministrator" FromRole="Administrator" ToRole="Kreira" />
           <NavigationProperty Name="KreiranOd" Relationship="ModelProj.AdministratorKreira" FromRole="Administrator" ToRole="Kreira" />
+          <Property Name="DatumKreiranja" Type="DateTime" Nullable="false" />
         </EntityType>
         <EntityType Name="Recenzija">
           <Key>
@@ -678,11 +682,13 @@
       <EntityTypeMapping TypeName="IsTypeOf(ModelProj.Kupac)">
         <MappingFragment StoreEntitySet="KorisnikSet_Kupac">
           <ScalarProperty Name="IdKor" ColumnName="IdKor" />
+          <ScalarProperty Name="stanjeRacuna" ColumnName="stanjeRacuna" />
         </MappingFragment>
       </EntityTypeMapping>
       <EntityTypeMapping TypeName="IsTypeOf(ModelProj.Administrator)">
         <MappingFragment StoreEntitySet="KorisnikSet_Administrator">
           <ScalarProperty Name="IdKor" ColumnName="IdKor" />
+          <ScalarProperty Name="DatumKreiranja" ColumnName="DatumKreiranja" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
