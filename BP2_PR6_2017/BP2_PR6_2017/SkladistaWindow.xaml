@@ -30,7 +30,7 @@
                     <DataGrid x:Name="SkladistaList" Background="Pink" SelectionMode="Single" IsReadOnly="True" AutoGenerateColumns="False" Margin="-13,40,17,-223" Grid.ColumnSpan="4">
                         <DataGrid.Columns>
                             <DataGridTextColumn x:Name="Id" Header="Id" Binding="{Binding IdSkl}" Width="120"/>
-                            <DataGridTextColumn x:Name="Adresa" Header="Adresa" Binding="{Binding Adresa}" Width="120"/>
+                            <DataGridTextColumn x:Name="Adresa" Header="Adresa" Binding="{Binding AdrSkladista}" Width="120"/>
 
                             <DataGridTemplateColumn Width="80">
                                 <DataGridTemplateColumn.CellTemplate>

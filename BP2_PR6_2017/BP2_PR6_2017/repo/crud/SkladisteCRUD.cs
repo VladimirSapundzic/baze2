@@ -38,6 +38,8 @@ namespace BP2_PR6_2017.repo.crud
         {
             try
             {
+                //db.SkladisteSet.Remove(db.SkladisteSet.Find(s.IdSkl));
+                //db.SkladisteSet.Add(s);
                 db.SaveChanges();
             }
             catch (DBConcurrencyException ce)

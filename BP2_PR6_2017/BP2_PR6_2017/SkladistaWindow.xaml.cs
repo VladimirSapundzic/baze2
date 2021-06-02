@@ -42,17 +42,35 @@ namespace BP2_PR6_2017.Prikazi
 
         public void ButtonDelete_Click(object s, RoutedEventArgs e)
         {
-            
+            var sk = ((FrameworkElement)s).DataContext as Skladiste;
+            if (sk != null)
+            {
+                _skl.ObrisiSkladiste(sk);
+                UcitajSkladista();
+            }
         }
 
         public void ButtonCancel_Click(object s, RoutedEventArgs e)
         {
+                ClearForm();
+            
+        }
 
+        public void ClearForm()
+        {
+            AdresaTextBox.Text = String.Empty;
         }
 
         public void ButtonEdit_Click(object s, RoutedEventArgs e)
         {
+            var sk = ((FrameworkElement)s).DataContext as Skladiste;
 
+            if (sk != null)
+            {
+                AdresaTextBox.Text = sk.AdrSkladista;
+                
+                this.editId = sk.IdSkl;
+            }
         }
 
         public void ButtonSave_Click(object s, RoutedEventArgs e)
@@ -69,9 +87,14 @@ namespace BP2_PR6_2017.Prikazi
             }
             else
             {
-                //skladi = _repository.GetDeveloperById(this.editId);
+                skladiste = _skl.GetById(this.editId);
                
-                //_repository.UpdateDeveloper(developer);
+                _skl.ObrisiSkladiste(skladiste);
+
+                Skladiste s_updated = new Skladiste();
+                s_updated.AdrSkladista = AdresaTextBox.Text;
+                s_updated.IdSkl = editId;
+                _skl.DodajSkladiste(s_updated);
             }
             UcitajSkladista();
             //ClearForm();
