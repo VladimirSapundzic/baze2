@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BP2_PR6_2017.Prikazi;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,13 @@ namespace BP2_PR6_2017
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        public void PrikaziSkladista(object s, RoutedEventArgs e)
+        {
+            MessageBox.Show("Nije jos uradjeno");
+            SkladistaWindow skladistaWindow = new SkladistaWindow();
+            skladistaWindow.Show();
         }
     }
 }

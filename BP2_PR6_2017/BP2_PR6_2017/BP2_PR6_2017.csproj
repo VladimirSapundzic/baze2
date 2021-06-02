@@ -64,6 +64,65 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Administrator.cs">
+      <DependentUpon>ModelProj.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Autor.cs">
+      <DependentUpon>ModelProj.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Izdavac.cs">
+      <DependentUpon>ModelProj.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Knjiga.cs">
+      <DependentUpon>ModelProj.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Korisnik.cs">
+      <DependentUpon>ModelProj.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Kreira.cs">
+      <DependentUpon>ModelProj.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Kupac.cs">
+      <DependentUpon>ModelProj.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Kupovina.cs">
+      <DependentUpon>ModelProj.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelProj.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelProj.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Nagrada.cs">
+      <DependentUpon>ModelProj.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Nalazi.cs">
+      <DependentUpon>ModelProj.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Osvaja.cs">
+      <DependentUpon>ModelProj.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SkladistaWindow.xaml.cs">
+      <DependentUpon>SkladistaWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Recenzija.cs">
+      <DependentUpon>ModelProj.tt</DependentUpon>
+    </Compile>
+    <Compile Include="repo\crud\AdminCRUD.cs" />
+    <Compile Include="repo\crud\AutorCRUD.cs" />
+    <Compile Include="repo\crud\KnjigaCRUD.cs" />
+    <Compile Include="repo\crud\KupacCRUD.cs" />
+    <Compile Include="repo\crud\RecenzijaCRUD.cs" />
+    <Compile Include="repo\crud\SkladisteCRUD.cs" />
+    <Compile Include="repo\interfaces\IAdmin.cs" />
+    <Compile Include="repo\interfaces\IAutor.cs" />
+    <Compile Include="repo\interfaces\IKnjiga.cs" />
+    <Compile Include="repo\interfaces\IKupac.cs" />
+    <Compile Include="repo\interfaces\IRecenzija.cs" />
+    <Compile Include="repo\interfaces\ISkladiste.cs" />
+    <Compile Include="Skladiste.cs">
+      <DependentUpon>ModelProj.tt</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -76,6 +135,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="SkladistaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ModelProj.Context.cs">
@@ -125,11 +188,20 @@
     <Content Include="ModelProj.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ModelProj.Context.cs</LastGenOutput>
+      <DependentUpon>ModelProj.edmx</DependentUpon>
     </Content>
     <Content Include="ModelProj.edmx.sql" />
+    <Content Include="ModelProj.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModelProj.cs</LastGenOutput>
+      <DependentUpon>ModelProj.edmx</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Prikazi\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
