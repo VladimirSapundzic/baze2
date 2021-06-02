@@ -1,0 +1,813 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ModelProj.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ModelProjStoreContainer">
+    <EntitySet Name="NagradaSet" EntityType="ModelProj.Store.NagradaSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="IzdavacSet" EntityType="ModelProj.Store.IzdavacSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AutorSet" EntityType="ModelProj.Store.AutorSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SkladisteSet" EntityType="ModelProj.Store.SkladisteSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="KorisnikSet" EntityType="ModelProj.Store.KorisnikSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RecenzijaSet" EntityType="ModelProj.Store.RecenzijaSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="KnjigaSet" EntityType="ModelProj.Store.KnjigaSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="NalaziSet" EntityType="ModelProj.Store.NalaziSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OsvajaSet" EntityType="ModelProj.Store.OsvajaSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="KreiraSet" EntityType="ModelProj.Store.KreiraSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="KupovinaSet" EntityType="ModelProj.Store.KupovinaSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="KorisnikSet_Kupac" EntityType="ModelProj.Store.KorisnikSet_Kupac" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="KorisnikSet_Administrator" EntityType="ModelProj.Store.KorisnikSet_Administrator" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="NagradaOsvaja" Association="ModelProj.Store.NagradaOsvaja">
+      <End Role="Nagrada" EntitySet="NagradaSet" />
+      <End Role="Osvaja" EntitySet="OsvajaSet" />
+    </AssociationSet>
+    <AssociationSet Name="IzdavacKnjiga" Association="ModelProj.Store.IzdavacKnjiga">
+      <End Role="Izdavac" EntitySet="IzdavacSet" />
+      <End Role="Knjiga" EntitySet="KnjigaSet" />
+    </AssociationSet>
+    <AssociationSet Name="AutorKnjiga" Association="ModelProj.Store.AutorKnjiga">
+      <End Role="Autor" EntitySet="AutorSet" />
+      <End Role="Knjiga" EntitySet="KnjigaSet" />
+    </AssociationSet>
+    <AssociationSet Name="SkladisteNalazi" Association="ModelProj.Store.SkladisteNalazi">
+      <End Role="Skladiste" EntitySet="SkladisteSet" />
+      <End Role="Nalazi" EntitySet="NalaziSet" />
+    </AssociationSet>
+    <AssociationSet Name="KupacRecenzija" Association="ModelProj.Store.KupacRecenzija">
+      <End Role="Kupac" EntitySet="KorisnikSet_Kupac" />
+      <End Role="Recenzija" EntitySet="RecenzijaSet" />
+    </AssociationSet>
+    <AssociationSet Name="KupacKupovina" Association="ModelProj.Store.KupacKupovina">
+      <End Role="Kupac" EntitySet="KorisnikSet_Kupac" />
+      <End Role="Kupovina" EntitySet="KupovinaSet" />
+    </AssociationSet>
+    <AssociationSet Name="KreiraAdministrator" Association="ModelProj.Store.KreiraAdministrator">
+      <End Role="Kreira" EntitySet="KreiraSet" />
+      <End Role="Administrator" EntitySet="KorisnikSet_Administrator" />
+    </AssociationSet>
+    <AssociationSet Name="AdministratorKreira" Association="ModelProj.Store.AdministratorKreira">
+      <End Role="Administrator" EntitySet="KorisnikSet_Administrator" />
+      <End Role="Kreira" EntitySet="KreiraSet" />
+    </AssociationSet>
+    <AssociationSet Name="KnjigaRecenzija" Association="ModelProj.Store.KnjigaRecenzija">
+      <End Role="Knjiga" EntitySet="KnjigaSet" />
+      <End Role="Recenzija" EntitySet="RecenzijaSet" />
+    </AssociationSet>
+    <AssociationSet Name="KnjigaNalazi" Association="ModelProj.Store.KnjigaNalazi">
+      <End Role="Knjiga" EntitySet="KnjigaSet" />
+      <End Role="Nalazi" EntitySet="NalaziSet" />
+    </AssociationSet>
+    <AssociationSet Name="KnjigaKupovina" Association="ModelProj.Store.KnjigaKupovina">
+      <End Role="Knjiga" EntitySet="KnjigaSet" />
+      <End Role="Kupovina" EntitySet="KupovinaSet" />
+    </AssociationSet>
+    <AssociationSet Name="OsvajaKnjiga" Association="ModelProj.Store.OsvajaKnjiga">
+      <End Role="Osvaja" EntitySet="OsvajaSet" />
+      <End Role="Knjiga" EntitySet="KnjigaSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Kupac_inherits_Korisnik" Association="ModelProj.Store.FK_Kupac_inherits_Korisnik">
+      <End Role="Korisnik" EntitySet="KorisnikSet" />
+      <End Role="Kupac" EntitySet="KorisnikSet_Kupac" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Administrator_inherits_Korisnik" Association="ModelProj.Store.FK_Administrator_inherits_Korisnik">
+      <End Role="Korisnik" EntitySet="KorisnikSet" />
+      <End Role="Administrator" EntitySet="KorisnikSet_Administrator" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="NagradaSet">
+    <Key>
+      <PropertyRef Name="IdNgr" />
+    </Key>
+    <Property Name="IdNgr" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NazivNagrade" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="IzdavacSet">
+    <Key>
+      <PropertyRef Name="IdIzd" />
+    </Key>
+    <Property Name="IdIzd" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NazivIzdavaca" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AutorSet">
+    <Key>
+      <PropertyRef Name="IdAut" />
+    </Key>
+    <Property Name="IdAut" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ImeAutora" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PrezAutora" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SkladisteSet">
+    <Key>
+      <PropertyRef Name="IdSkl" />
+    </Key>
+    <Property Name="IdSkl" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AdrSkladista" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KorisnikSet">
+    <Key>
+      <PropertyRef Name="IdKor" />
+    </Key>
+    <Property Name="IdKor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ImeKor" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PrezKor" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Username" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RecenzijaSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="KnjigaISBN" Type="int" Nullable="false" />
+    <Property Name="KupacIdKor" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Komentar" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Ocena" Type="int" Nullable="false" />
+    <Property Name="Kupac_IdKor" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KnjigaSet">
+    <Key>
+      <PropertyRef Name="ISBN" />
+    </Key>
+    <Property Name="ISBN" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AutorIdAut" Type="int" Nullable="false" />
+    <Property Name="IzdavacIdIzd" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NalaziSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SkladisteIdSkl" Type="int" Nullable="false" />
+    <Property Name="Knjiga_ISBN" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OsvajaSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NagradaIdNgr" Type="int" Nullable="false" />
+    <Property Name="KnjigaISBN1" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KreiraSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AdministratorIdKor" Type="int" Nullable="false" />
+    <Property Name="Administrator_IdKor" Type="int" Nullable="false" />
+    <Property Name="KreiranAdministrator_IdKor" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KupovinaSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Datum" Type="datetime" Nullable="false" />
+    <Property Name="KupacIdKor" Type="int" Nullable="false" />
+    <Property Name="Kupac_IdKor" Type="int" Nullable="false" />
+    <Property Name="Knjiga_ISBN" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KorisnikSet_Kupac">
+    <Key>
+      <PropertyRef Name="IdKor" />
+    </Key>
+    <Property Name="IdKor" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KorisnikSet_Administrator">
+    <Key>
+      <PropertyRef Name="IdKor" />
+    </Key>
+    <Property Name="IdKor" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="NagradaOsvaja">
+    <End Role="Nagrada" Type="ModelProj.Store.NagradaSet" Multiplicity="1" />
+    <End Role="Osvaja" Type="ModelProj.Store.OsvajaSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nagrada">
+        <PropertyRef Name="IdNgr" />
+      </Principal>
+      <Dependent Role="Osvaja">
+        <PropertyRef Name="NagradaIdNgr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="IzdavacKnjiga">
+    <End Role="Izdavac" Type="ModelProj.Store.IzdavacSet" Multiplicity="1" />
+    <End Role="Knjiga" Type="ModelProj.Store.KnjigaSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Izdavac">
+        <PropertyRef Name="IdIzd" />
+      </Principal>
+      <Dependent Role="Knjiga">
+        <PropertyRef Name="IzdavacIdIzd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AutorKnjiga">
+    <End Role="Autor" Type="ModelProj.Store.AutorSet" Multiplicity="1" />
+    <End Role="Knjiga" Type="ModelProj.Store.KnjigaSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Autor">
+        <PropertyRef Name="IdAut" />
+      </Principal>
+      <Dependent Role="Knjiga">
+        <PropertyRef Name="AutorIdAut" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SkladisteNalazi">
+    <End Role="Skladiste" Type="ModelProj.Store.SkladisteSet" Multiplicity="1" />
+    <End Role="Nalazi" Type="ModelProj.Store.NalaziSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Skladiste">
+        <PropertyRef Name="IdSkl" />
+      </Principal>
+      <Dependent Role="Nalazi">
+        <PropertyRef Name="SkladisteIdSkl" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="KupacRecenzija">
+    <End Role="Kupac" Type="ModelProj.Store.KorisnikSet_Kupac" Multiplicity="1" />
+    <End Role="Recenzija" Type="ModelProj.Store.RecenzijaSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kupac">
+        <PropertyRef Name="IdKor" />
+      </Principal>
+      <Dependent Role="Recenzija">
+        <PropertyRef Name="Kupac_IdKor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="KupacKupovina">
+    <End Role="Kupac" Type="ModelProj.Store.KorisnikSet_Kupac" Multiplicity="1" />
+    <End Role="Kupovina" Type="ModelProj.Store.KupovinaSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kupac">
+        <PropertyRef Name="IdKor" />
+      </Principal>
+      <Dependent Role="Kupovina">
+        <PropertyRef Name="Kupac_IdKor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="KreiraAdministrator">
+    <End Role="Kreira" Type="ModelProj.Store.KreiraSet" Multiplicity="*" />
+    <End Role="Administrator" Type="ModelProj.Store.KorisnikSet_Administrator" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Administrator">
+        <PropertyRef Name="IdKor" />
+      </Principal>
+      <Dependent Role="Kreira">
+        <PropertyRef Name="Administrator_IdKor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AdministratorKreira">
+    <End Role="Administrator" Type="ModelProj.Store.KorisnikSet_Administrator" Multiplicity="1" />
+    <End Role="Kreira" Type="ModelProj.Store.KreiraSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Administrator">
+        <PropertyRef Name="IdKor" />
+      </Principal>
+      <Dependent Role="Kreira">
+        <PropertyRef Name="KreiranAdministrator_IdKor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="KnjigaRecenzija">
+    <End Role="Knjiga" Type="ModelProj.Store.KnjigaSet" Multiplicity="1" />
+    <End Role="Recenzija" Type="ModelProj.Store.RecenzijaSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Knjiga">
+        <PropertyRef Name="ISBN" />
+      </Principal>
+      <Dependent Role="Recenzija">
+        <PropertyRef Name="KnjigaISBN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="KnjigaNalazi">
+    <End Role="Knjiga" Type="ModelProj.Store.KnjigaSet" Multiplicity="1" />
+    <End Role="Nalazi" Type="ModelProj.Store.NalaziSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Knjiga">
+        <PropertyRef Name="ISBN" />
+      </Principal>
+      <Dependent Role="Nalazi">
+        <PropertyRef Name="Knjiga_ISBN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="KnjigaKupovina">
+    <End Role="Knjiga" Type="ModelProj.Store.KnjigaSet" Multiplicity="1" />
+    <End Role="Kupovina" Type="ModelProj.Store.KupovinaSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Knjiga">
+        <PropertyRef Name="ISBN" />
+      </Principal>
+      <Dependent Role="Kupovina">
+        <PropertyRef Name="Knjiga_ISBN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OsvajaKnjiga">
+    <End Role="Osvaja" Type="ModelProj.Store.OsvajaSet" Multiplicity="*" />
+    <End Role="Knjiga" Type="ModelProj.Store.KnjigaSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Knjiga">
+        <PropertyRef Name="ISBN" />
+      </Principal>
+      <Dependent Role="Osvaja">
+        <PropertyRef Name="KnjigaISBN1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Kupac_inherits_Korisnik">
+    <End Role="Korisnik" Type="ModelProj.Store.KorisnikSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Kupac" Type="ModelProj.Store.KorisnikSet_Kupac" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Korisnik">
+        <PropertyRef Name="IdKor" />
+      </Principal>
+      <Dependent Role="Kupac">
+        <PropertyRef Name="IdKor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Administrator_inherits_Korisnik">
+    <End Role="Korisnik" Type="ModelProj.Store.KorisnikSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Administrator" Type="ModelProj.Store.KorisnikSet_Administrator" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Korisnik">
+        <PropertyRef Name="IdKor" />
+      </Principal>
+      <Dependent Role="Administrator">
+        <PropertyRef Name="IdKor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ModelProj" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="ModelProjContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="NagradaSet" EntityType="ModelProj.Nagrada" />
+          <EntitySet Name="IzdavacSet" EntityType="ModelProj.Izdavac" />
+          <EntitySet Name="AutorSet" EntityType="ModelProj.Autor" />
+          <EntitySet Name="SkladisteSet" EntityType="ModelProj.Skladiste" />
+          <EntitySet Name="KorisnikSet" EntityType="ModelProj.Korisnik" />
+          <EntitySet Name="RecenzijaSet" EntityType="ModelProj.Recenzija" />
+          <EntitySet Name="KnjigaSet" EntityType="ModelProj.Knjiga" />
+          <EntitySet Name="NalaziSet" EntityType="ModelProj.Nalazi" />
+          <EntitySet Name="OsvajaSet" EntityType="ModelProj.Osvaja" />
+          <EntitySet Name="KreiraSet" EntityType="ModelProj.Kreira" />
+          <EntitySet Name="KupovinaSet" EntityType="ModelProj.Kupovina" />
+          <AssociationSet Name="NagradaOsvaja" Association="ModelProj.NagradaOsvaja">
+            <End Role="Nagrada" EntitySet="NagradaSet" />
+            <End Role="Osvaja" EntitySet="OsvajaSet" />
+          </AssociationSet>
+          <AssociationSet Name="IzdavacKnjiga" Association="ModelProj.IzdavacKnjiga">
+            <End Role="Izdavac" EntitySet="IzdavacSet" />
+            <End Role="Knjiga" EntitySet="KnjigaSet" />
+          </AssociationSet>
+          <AssociationSet Name="AutorKnjiga" Association="ModelProj.AutorKnjiga">
+            <End Role="Autor" EntitySet="AutorSet" />
+            <End Role="Knjiga" EntitySet="KnjigaSet" />
+          </AssociationSet>
+          <AssociationSet Name="SkladisteNalazi" Association="ModelProj.SkladisteNalazi">
+            <End Role="Skladiste" EntitySet="SkladisteSet" />
+            <End Role="Nalazi" EntitySet="NalaziSet" />
+          </AssociationSet>
+          <AssociationSet Name="KupacRecenzija" Association="ModelProj.KupacRecenzija">
+            <End Role="Kupac" EntitySet="KorisnikSet" />
+            <End Role="Recenzija" EntitySet="RecenzijaSet" />
+          </AssociationSet>
+          <AssociationSet Name="KupacKupovina" Association="ModelProj.KupacKupovina">
+            <End Role="Kupac" EntitySet="KorisnikSet" />
+            <End Role="Kupovina" EntitySet="KupovinaSet" />
+          </AssociationSet>
+          <AssociationSet Name="KreiraAdministrator" Association="ModelProj.KreiraAdministrator">
+            <End Role="Kreira" EntitySet="KreiraSet" />
+            <End Role="Administrator" EntitySet="KorisnikSet" />
+          </AssociationSet>
+          <AssociationSet Name="AdministratorKreira" Association="ModelProj.AdministratorKreira">
+            <End Role="Administrator" EntitySet="KorisnikSet" />
+            <End Role="Kreira" EntitySet="KreiraSet" />
+          </AssociationSet>
+          <AssociationSet Name="KnjigaRecenzija" Association="ModelProj.KnjigaRecenzija">
+            <End Role="Knjiga" EntitySet="KnjigaSet" />
+            <End Role="Recenzija" EntitySet="RecenzijaSet" />
+          </AssociationSet>
+          <AssociationSet Name="KnjigaNalazi" Association="ModelProj.KnjigaNalazi">
+            <End Role="Knjiga" EntitySet="KnjigaSet" />
+            <End Role="Nalazi" EntitySet="NalaziSet" />
+          </AssociationSet>
+          <AssociationSet Name="KnjigaKupovina" Association="ModelProj.KnjigaKupovina">
+            <End Role="Knjiga" EntitySet="KnjigaSet" />
+            <End Role="Kupovina" EntitySet="KupovinaSet" />
+          </AssociationSet>
+          <AssociationSet Name="OsvajaKnjiga" Association="ModelProj.OsvajaKnjiga">
+            <End Role="Osvaja" EntitySet="OsvajaSet" />
+            <End Role="Knjiga" EntitySet="KnjigaSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Nagrada">
+          <Key>
+            <PropertyRef Name="IdNgr" />
+          </Key>
+          <Property Name="IdNgr" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NazivNagrade" Type="String" Nullable="false" />
+          <NavigationProperty Name="Osvaja" Relationship="ModelProj.NagradaOsvaja" FromRole="Nagrada" ToRole="Osvaja" />
+        </EntityType>
+        <EntityType Name="Izdavac">
+          <Key>
+            <PropertyRef Name="IdIzd" />
+          </Key>
+          <Property Name="IdIzd" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NazivIzdavaca" Type="String" Nullable="false" />
+          <NavigationProperty Name="Knjiga" Relationship="ModelProj.IzdavacKnjiga" FromRole="Izdavac" ToRole="Knjiga" />
+        </EntityType>
+        <EntityType Name="Autor">
+          <Key>
+            <PropertyRef Name="IdAut" />
+          </Key>
+          <Property Name="IdAut" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImeAutora" Type="String" Nullable="false" />
+          <Property Name="PrezAutora" Type="String" Nullable="false" />
+          <NavigationProperty Name="Knjiga" Relationship="ModelProj.AutorKnjiga" FromRole="Autor" ToRole="Knjiga" />
+        </EntityType>
+        <EntityType Name="Skladiste">
+          <Key>
+            <PropertyRef Name="IdSkl" />
+          </Key>
+          <Property Name="IdSkl" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdrSkladista" Type="String" Nullable="false" />
+          <NavigationProperty Name="Nalazi" Relationship="ModelProj.SkladisteNalazi" FromRole="Skladiste" ToRole="Nalazi" />
+        </EntityType>
+        <EntityType Name="Korisnik">
+          <Key>
+            <PropertyRef Name="IdKor" />
+          </Key>
+          <Property Name="IdKor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImeKor" Type="String" Nullable="false" />
+          <Property Name="PrezKor" Type="String" Nullable="false" />
+          <Property Name="Username" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Kupac" BaseType="ModelProj.Korisnik">
+          <NavigationProperty Name="Recenzija" Relationship="ModelProj.KupacRecenzija" FromRole="Kupac" ToRole="Recenzija" />
+          <NavigationProperty Name="Kupovina" Relationship="ModelProj.KupacKupovina" FromRole="Kupac" ToRole="Kupovina" />
+        </EntityType>
+        <EntityType Name="Administrator" BaseType="ModelProj.Korisnik">
+          <NavigationProperty Name="Kreira1" Relationship="ModelProj.KreiraAdministrator" FromRole="Administrator" ToRole="Kreira" />
+          <NavigationProperty Name="KreiranOd" Relationship="ModelProj.AdministratorKreira" FromRole="Administrator" ToRole="Kreira" />
+        </EntityType>
+        <EntityType Name="Recenzija">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="KnjigaISBN" Type="Int32" Nullable="false" />
+          <Property Name="KupacIdKor" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Komentar" Type="String" Nullable="false" />
+          <Property Name="Ocena" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Kupac" Relationship="ModelProj.KupacRecenzija" FromRole="Recenzija" ToRole="Kupac" />
+          <NavigationProperty Name="Knjiga" Relationship="ModelProj.KnjigaRecenzija" FromRole="Recenzija" ToRole="Knjiga" />
+        </EntityType>
+        <EntityType Name="Knjiga">
+          <Key>
+            <PropertyRef Name="ISBN" />
+          </Key>
+          <Property Name="ISBN" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AutorIdAut" Type="Int32" Nullable="false" />
+          <Property Name="IzdavacIdIzd" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Izdavac" Relationship="ModelProj.IzdavacKnjiga" FromRole="Knjiga" ToRole="Izdavac" />
+          <NavigationProperty Name="Autor" Relationship="ModelProj.AutorKnjiga" FromRole="Knjiga" ToRole="Autor" />
+          <NavigationProperty Name="Recenzija" Relationship="ModelProj.KnjigaRecenzija" FromRole="Knjiga" ToRole="Recenzija" />
+          <NavigationProperty Name="Nalazi" Relationship="ModelProj.KnjigaNalazi" FromRole="Knjiga" ToRole="Nalazi" />
+          <NavigationProperty Name="Kupovina" Relationship="ModelProj.KnjigaKupovina" FromRole="Knjiga" ToRole="Kupovina" />
+          <NavigationProperty Name="Osvaja" Relationship="ModelProj.OsvajaKnjiga" FromRole="Knjiga" ToRole="Osvaja" />
+        </EntityType>
+        <EntityType Name="Nalazi">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SkladisteIdSkl" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Skladiste" Relationship="ModelProj.SkladisteNalazi" FromRole="Nalazi" ToRole="Skladiste" />
+          <NavigationProperty Name="Knjiga" Relationship="ModelProj.KnjigaNalazi" FromRole="Nalazi" ToRole="Knjiga" />
+        </EntityType>
+        <EntityType Name="Osvaja">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NagradaIdNgr" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Nagrada" Relationship="ModelProj.NagradaOsvaja" FromRole="Osvaja" ToRole="Nagrada" />
+          <NavigationProperty Name="Knjiga" Relationship="ModelProj.OsvajaKnjiga" FromRole="Osvaja" ToRole="Knjiga" />
+          <Property Name="KnjigaISBN1" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Kreira">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdministratorIdKor" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Administrator" Relationship="ModelProj.KreiraAdministrator" FromRole="Kreira" ToRole="Administrator" />
+          <NavigationProperty Name="KreiranAdministrator" Relationship="ModelProj.AdministratorKreira" FromRole="Kreira" ToRole="Administrator" />
+        </EntityType>
+        <EntityType Name="Kupovina">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Datum" Type="DateTime" Nullable="false" />
+          <Property Name="KupacIdKor" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Kupac" Relationship="ModelProj.KupacKupovina" FromRole="Kupovina" ToRole="Kupac" />
+          <NavigationProperty Name="Knjiga" Relationship="ModelProj.KnjigaKupovina" FromRole="Kupovina" ToRole="Knjiga" />
+        </EntityType>
+        <Association Name="NagradaOsvaja">
+          <End Type="ModelProj.Nagrada" Role="Nagrada" Multiplicity="1" />
+          <End Type="ModelProj.Osvaja" Role="Osvaja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nagrada">
+              <PropertyRef Name="IdNgr" />
+            </Principal>
+            <Dependent Role="Osvaja">
+              <PropertyRef Name="NagradaIdNgr" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="IzdavacKnjiga">
+          <End Type="ModelProj.Izdavac" Role="Izdavac" Multiplicity="1" />
+          <End Type="ModelProj.Knjiga" Role="Knjiga" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Izdavac">
+              <PropertyRef Name="IdIzd" />
+            </Principal>
+            <Dependent Role="Knjiga">
+              <PropertyRef Name="IzdavacIdIzd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AutorKnjiga">
+          <End Type="ModelProj.Autor" Role="Autor" Multiplicity="1" />
+          <End Type="ModelProj.Knjiga" Role="Knjiga" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Autor">
+              <PropertyRef Name="IdAut" />
+            </Principal>
+            <Dependent Role="Knjiga">
+              <PropertyRef Name="AutorIdAut" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SkladisteNalazi">
+          <End Type="ModelProj.Skladiste" Role="Skladiste" Multiplicity="1" />
+          <End Type="ModelProj.Nalazi" Role="Nalazi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Skladiste">
+              <PropertyRef Name="IdSkl" />
+            </Principal>
+            <Dependent Role="Nalazi">
+              <PropertyRef Name="SkladisteIdSkl" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="KupacRecenzija">
+          <End Type="ModelProj.Kupac" Role="Kupac" Multiplicity="1" />
+          <End Type="ModelProj.Recenzija" Role="Recenzija" Multiplicity="*" />
+        </Association>
+        <Association Name="KupacKupovina">
+          <End Type="ModelProj.Kupac" Role="Kupac" Multiplicity="1" />
+          <End Type="ModelProj.Kupovina" Role="Kupovina" Multiplicity="*" />
+        </Association>
+        <Association Name="KreiraAdministrator">
+          <End Type="ModelProj.Kreira" Role="Kreira" Multiplicity="*" />
+          <End Type="ModelProj.Administrator" Role="Administrator" Multiplicity="1" />
+        </Association>
+        <Association Name="AdministratorKreira">
+          <End Type="ModelProj.Administrator" Role="Administrator" Multiplicity="1" />
+          <End Type="ModelProj.Kreira" Role="Kreira" Multiplicity="0..1" />
+        </Association>
+        <Association Name="KnjigaRecenzija">
+          <End Type="ModelProj.Knjiga" Role="Knjiga" Multiplicity="1" />
+          <End Type="ModelProj.Recenzija" Role="Recenzija" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Knjiga">
+              <PropertyRef Name="ISBN" />
+            </Principal>
+            <Dependent Role="Recenzija">
+              <PropertyRef Name="KnjigaISBN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="KnjigaNalazi">
+          <End Type="ModelProj.Knjiga" Role="Knjiga" Multiplicity="1" />
+          <End Type="ModelProj.Nalazi" Role="Nalazi" Multiplicity="0..1" />
+        </Association>
+        <Association Name="KnjigaKupovina">
+          <End Type="ModelProj.Knjiga" Role="Knjiga" Multiplicity="1" />
+          <End Type="ModelProj.Kupovina" Role="Kupovina" Multiplicity="0..1" />
+        </Association>
+        <Association Name="OsvajaKnjiga">
+          <End Type="ModelProj.Osvaja" Role="Osvaja" Multiplicity="*" />
+          <End Type="ModelProj.Knjiga" Role="Knjiga" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Knjiga">
+              <PropertyRef Name="ISBN" />
+            </Principal>
+            <Dependent Role="Osvaja">
+              <PropertyRef Name="KnjigaISBN1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelProjStoreContainer" CdmEntityContainer="ModelProjContainer">
+    <EntitySetMapping Name="NagradaSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelProj.Nagrada)">
+        <MappingFragment StoreEntitySet="NagradaSet">
+          <ScalarProperty Name="IdNgr" ColumnName="IdNgr" />
+          <ScalarProperty Name="NazivNagrade" ColumnName="NazivNagrade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IzdavacSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelProj.Izdavac)">
+        <MappingFragment StoreEntitySet="IzdavacSet">
+          <ScalarProperty Name="IdIzd" ColumnName="IdIzd" />
+          <ScalarProperty Name="NazivIzdavaca" ColumnName="NazivIzdavaca" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AutorSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelProj.Autor)">
+        <MappingFragment StoreEntitySet="AutorSet">
+          <ScalarProperty Name="IdAut" ColumnName="IdAut" />
+          <ScalarProperty Name="ImeAutora" ColumnName="ImeAutora" />
+          <ScalarProperty Name="PrezAutora" ColumnName="PrezAutora" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SkladisteSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelProj.Skladiste)">
+        <MappingFragment StoreEntitySet="SkladisteSet">
+          <ScalarProperty Name="IdSkl" ColumnName="IdSkl" />
+          <ScalarProperty Name="AdrSkladista" ColumnName="AdrSkladista" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KorisnikSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelProj.Korisnik)">
+        <MappingFragment StoreEntitySet="KorisnikSet">
+          <ScalarProperty Name="IdKor" ColumnName="IdKor" />
+          <ScalarProperty Name="ImeKor" ColumnName="ImeKor" />
+          <ScalarProperty Name="PrezKor" ColumnName="PrezKor" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ModelProj.Kupac)">
+        <MappingFragment StoreEntitySet="KorisnikSet_Kupac">
+          <ScalarProperty Name="IdKor" ColumnName="IdKor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ModelProj.Administrator)">
+        <MappingFragment StoreEntitySet="KorisnikSet_Administrator">
+          <ScalarProperty Name="IdKor" ColumnName="IdKor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RecenzijaSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelProj.Recenzija)">
+        <MappingFragment StoreEntitySet="RecenzijaSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="KnjigaISBN" ColumnName="KnjigaISBN" />
+          <ScalarProperty Name="KupacIdKor" ColumnName="KupacIdKor" />
+          <ScalarProperty Name="Komentar" ColumnName="Komentar" />
+          <ScalarProperty Name="Ocena" ColumnName="Ocena" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KnjigaSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelProj.Knjiga)">
+        <MappingFragment StoreEntitySet="KnjigaSet">
+          <ScalarProperty Name="ISBN" ColumnName="ISBN" />
+          <ScalarProperty Name="AutorIdAut" ColumnName="AutorIdAut" />
+          <ScalarProperty Name="IzdavacIdIzd" ColumnName="IzdavacIdIzd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NalaziSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelProj.Nalazi)">
+        <MappingFragment StoreEntitySet="NalaziSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SkladisteIdSkl" ColumnName="SkladisteIdSkl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OsvajaSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelProj.Osvaja)">
+        <MappingFragment StoreEntitySet="OsvajaSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NagradaIdNgr" ColumnName="NagradaIdNgr" />
+          <ScalarProperty Name="KnjigaISBN1" ColumnName="KnjigaISBN1" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KreiraSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelProj.Kreira)">
+        <MappingFragment StoreEntitySet="KreiraSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AdministratorIdKor" ColumnName="AdministratorIdKor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KupovinaSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelProj.Kupovina)">
+        <MappingFragment StoreEntitySet="KupovinaSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Datum" ColumnName="Datum" />
+          <ScalarProperty Name="KupacIdKor" ColumnName="KupacIdKor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="KupacRecenzija" TypeName="ModelProj.KupacRecenzija" StoreEntitySet="RecenzijaSet">
+      <EndProperty Name="Kupac">
+        <ScalarProperty Name="IdKor" ColumnName="Kupac_IdKor" />
+      </EndProperty>
+      <EndProperty Name="Recenzija">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="KupacKupovina" TypeName="ModelProj.KupacKupovina" StoreEntitySet="KupovinaSet">
+      <EndProperty Name="Kupac">
+        <ScalarProperty Name="IdKor" ColumnName="Kupac_IdKor" />
+      </EndProperty>
+      <EndProperty Name="Kupovina">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="KreiraAdministrator" TypeName="ModelProj.KreiraAdministrator" StoreEntitySet="KreiraSet">
+      <EndProperty Name="Administrator">
+        <ScalarProperty Name="IdKor" ColumnName="Administrator_IdKor" />
+      </EndProperty>
+      <EndProperty Name="Kreira">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="AdministratorKreira" TypeName="ModelProj.AdministratorKreira" StoreEntitySet="KreiraSet">
+      <EndProperty Name="Administrator">
+        <ScalarProperty Name="IdKor" ColumnName="KreiranAdministrator_IdKor" />
+      </EndProperty>
+      <EndProperty Name="Kreira">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="KnjigaNalazi" TypeName="ModelProj.KnjigaNalazi" StoreEntitySet="NalaziSet">
+      <EndProperty Name="Knjiga">
+        <ScalarProperty Name="ISBN" ColumnName="Knjiga_ISBN" />
+      </EndProperty>
+      <EndProperty Name="Nalazi">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="KnjigaKupovina" TypeName="ModelProj.KnjigaKupovina" StoreEntitySet="KupovinaSet">
+      <EndProperty Name="Knjiga">
+        <ScalarProperty Name="ISBN" ColumnName="Knjiga_ISBN" />
+      </EndProperty>
+      <EndProperty Name="Kupovina">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
