@@ -70,8 +70,14 @@
     <Compile Include="Autor.cs">
       <DependentUpon>ModelProj.tt</DependentUpon>
     </Compile>
+    <Compile Include="AutoriWindow.xaml.cs">
+      <DependentUpon>AutoriWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Izdavac.cs">
       <DependentUpon>ModelProj.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IzdavaciWindow.xaml.cs">
+      <DependentUpon>IzdavaciWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Knjiga.cs">
       <DependentUpon>ModelProj.tt</DependentUpon>
@@ -105,6 +111,8 @@
     <Compile Include="RecenzijeWindow.xaml.cs">
       <DependentUpon>RecenzijeWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="repo\crud\IzdavacCRUD.cs" />
+    <Compile Include="repo\interfaces\IIzdavac.cs" />
     <Compile Include="SkladistaWindow.xaml.cs">
       <DependentUpon>SkladistaWindow.xaml</DependentUpon>
     </Compile>
@@ -126,6 +134,14 @@
     <Compile Include="Skladiste.cs">
       <DependentUpon>ModelProj.tt</DependentUpon>
     </Compile>
+    <Page Include="AutoriWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="IzdavaciWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

@@ -7,6 +7,35 @@
         mc:Ignorable="d"
         Title="AutoriWindow" Height="450" Width="800">
     <Grid>
+        <Label Content="Ime" HorizontalAlignment="Left" Margin="68,55,0,0" VerticalAlignment="Top" Width="183" Height="33"/>
+        <TextBox HorizontalAlignment="Left" Height="33" Margin="292,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Name ="ImeTextBox"/>
         
+        <Button Content="Save" Click="ButtonSave_Click" HorizontalAlignment="Left" Margin="568,55,0,0" VerticalAlignment="Top" Width="75" Height="22"/>
+        <Button x:Name="ButtonCancel" Content="Cancel" Margin="677,55,0,342" HorizontalAlignment="Left" Width="70" Click="ButtonCancel_Click" RenderTransformOrigin="1.027,2.872" />
+        <DataGrid x:Name="AutoriList" Background="Pink" SelectionMode="Single" IsReadOnly="True" AutoGenerateColumns="False" Margin="30,222,32,10" Height="187">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="Id" Header="Id" Binding="{Binding IdAut}" Width="120"/>
+                <DataGridTextColumn x:Name="Ime" Header="Ime" Binding="{Binding ImeAutora}" Width="120"/>
+                <DataGridTextColumn x:Name="Prezime" Header="Prezime" Binding="{Binding PrezAutora}" Width="120"/>
+
+
+                <DataGridTemplateColumn Width="80">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="EDIT" x:Name="ButtonEdit" Click="ButtonEdit_Click" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="80">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="DELETE" x:Name="ButtonDelete" Click="ButtonDelete_Click" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Prezime" HorizontalAlignment="Left" Margin="68,115,0,0" VerticalAlignment="Top" Width="183" Height="33"/>
+        <TextBox HorizontalAlignment="Left" Height="33" Margin="292,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" x:Name ="PrezimeTextBox"/>
     </Grid>
 </Window>

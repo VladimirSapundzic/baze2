@@ -39,5 +39,19 @@ namespace BP2_PR6_2017
             RecenzijeWindow recenzijeWindow = new RecenzijeWindow();
             recenzijeWindow.Show();
         }
+
+        public void PrikaziIzdavace(object s, RoutedEventArgs e)
+        {
+            //MessageBox.Show("Nije jos uradjeno");
+            IzdavaciWindow izdavaciWindow = new IzdavaciWindow();
+            izdavaciWindow.Show();
+        }
+
+        public void PrikaziAutore(object s, RoutedEventArgs e)
+        {
+            //MessageBox.Show("Nije jos uradjeno");
+            AutoriWindow autoriWindow = new AutoriWindow();
+            autoriWindow.Show();
+        }
     }
 }
